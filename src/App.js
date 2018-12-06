@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import * as firebase from 'firebase';
+import Report from './components/Report';
+
+
+var config = {
+    apiKey: "AIzaSyC29vl9980wtoqQGb_ajoUo0glI5HTQoW4",
+    authDomain: "rose-home-9f5b9.firebaseapp.com",
+    databaseURL: "https://rose-home-9f5b9.firebaseio.com",
+    projectId: "rose-home-9f5b9",
+    storageBucket: "rose-home-9f5b9.appspot.com",
+    messagingSenderId: "1065400178445"
+  };
+  firebase.initializeApp(config);
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <div className="App">
+          <h1 className="App-Header">Rose Home
+          </h1>
+          <Report firebase={firebase} />
+        </div>
       </div>
+
+
+
+
     );
   }
 }
